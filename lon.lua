@@ -518,7 +518,7 @@ local function getNearestMutationFish()
                     local mut = fish:GetAttribute("Mutation")
                     if mut and activeMutations[mut] then
                         local curHP = fish:GetAttribute("CurHP") or 1
-                        if curHP == 1 then
+                        if curHP > 0 then
                             local part = fish:IsA("Model") and (fish.PrimaryPart or fish:FindFirstChildWhichIsA("BasePart")) or fish
                             if part then
                                 local d = (hrp.Position - part.Position).Magnitude
@@ -1051,3 +1051,5 @@ game:GetService("StarterGui"):SetCore("SendNotification", {
     Text = "Đã gộp thành công Auto Sell, Auto Skill & Speed 100",
     Duration = 5
 })
+
+
